@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Policy Evaluation and Enforcement on the Web with ODRL</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+  
+</head>
+<body>
+  <div class="top-bar">
+    <header>
+      <h1>Policy Evaluation and Enforcement on the Web with ODRL</h1>
+      <p>
+        An introduction to the Open Digital Rights Language (ODRL),
+        its semantics, and the deterministic evaluation of policies
+        towards supporting complex data exchanges on the Web
+      </p>
+      <p>
+        Tutorial co-located with the 
+        <a href="https://2026.eswc-conferences.org" target="_blank">ESWC 2026</a>,
+        May 11th & 12th 2026
+      </p>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#abstract">Abstract</a></li>
+        <li><a href="#goals">Learning Goals</a></li>
+        <li><a href="#materials">Materials</a></li>
+        <li><a href="#programme">Programme</a></li>
+        <li><a href="#organisers">Organisers</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- Overview Section -->
+    <section id="abstract">
+      <h2>Abstract</h2>
+      <p>
+        Semantic technologies offer a powerful foundation for building policy engines that can interpret, negotiate,
+        and enforce data usage rules in a consistent and interoperable way.
+        As such, by leveraging semantic standards, the W3C-standardised Open Digital Rights Language (ODRL) can be used
+        to transform policies from static legal checkboxes into machine-understandable agreements that evolve with real-world needs.
+        In this tutorial, we show how ODRL—backed by the under-development ODRL semantics specification—enables
+        deterministic evaluation of complex, contextual policies, supporting more trustworthy and adaptive data exchanges.
+        Participants will be introduced to the concept of policies, and in particular to ODRL policies,
+        and then get hands-on experience in managing policies, as well as in the inner workings of ODRL evaluation.
+        The tutorial covers how to create policies with ODRL, the basics of ODRL 2.2 semantics, and how policies should be evaluated,
+        as well as the required inputs and resulting output necessary to implement ODRL evaluators.
+        Moreover, participants get an introduction to existing implementations and
+        advice from the core people driving the W3C ODRL Community Group work,
+        and will have time during the tutorial to make the first steps in applying it to their areas of interest.
+      </p>
+    </section>
+
+    <section id="goals">
+      <h2>Learning goals</h2>
+      <ul>
+        <li>Participants know the motivation and vision for publishing data with usage policies</li>
+        <li>Participants know what is a policy and a policy language</li>
+        <li>Participants know the technical basis of policies and how they relate to other semantic technologies</li>
+        <li>Participants can create and manage their own policies</li>
+        <li>Participants understand the basics of the semantics of ODRL 2.2 and know how policies should be evaluated</li>
+        <li>Participants know the architecture of an ODRL evaluator and understand the importance of having a test suite</li>
+        <li>Participants understand the required inputs and resulting output necessary to implement an ODRL evaluator</li>
+        <li>Participants make their first steps in using an ODRL evaluator for a small project of their choosing or other practical applications</li>
+      </ul>
+    </section>
+
+    <!-- Materials Section -->
+    <section id="materials">
+      <h2>Tutorial Materials</h2>
+      <ul>
+        <!-- <li><a href="materials/odrl-slides.pdf" download>Slides (PDF)</a></li>
+        <li><a href="materials/odrl-examples.zip" download>Example ODRL Policies</a></li>
+        <li><a href="materials/odrl-exercises.pdf" download>Hands-on Exercises</a></li> -->
+        <li><a href="#references">Further Reading and References</a></li>
+        <li>TBA</li>
+      </ul>
+    </section>
+
+    <!-- Programme Section -->
+    <section id="programme">
+      <h2>Programme Schedule</h2>
+      <p>
+        The scheduled time is provisional until the final programme of the workshop is out. The tutorial will run for half-day.
+      </p>
+      <table class="schedule">
+        <thead>
+          <tr>
+            <th style="text-align:left; border-bottom:2px solid #e5e7eb; padding:0.5rem;">Time</th>
+            <th style="text-align:left; border-bottom:2px solid #e5e7eb; padding:0.5rem;">Session</th>
+            <th style="text-align:left; border-bottom:2px solid #e5e7eb; padding:0.5rem;">Speaker</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:0.5rem;">09:00 - 09:10</td>
+            <td style="padding:0.5rem;">Introduction to the tutorial</td>
+            <td style="padding:0.5rem;">Organisers</td>
+          </tr>
+          <tr>
+            <td style="padding:0.5rem;">09:10 - 09:30</td>
+            <td style="padding:0.5rem;">Introduction to policies and policy languages</td>
+            <td style="padding:0.5rem;">Dr. Alice Example</td>
+          </tr>
+          <tr>
+            <td style="padding:0.5rem;">09:30 - 10:30</td>
+            <td style="padding:0.5rem;">Introduction to ODRL & Formal semantics of ODRL policies</td>
+            <td style="padding:0.5rem;">Prof. Bob Example</td>
+          </tr>
+          <tr>
+            <td style="padding:0.5rem;">10:30 - 11:00</td>
+            <td style="padding:0.5rem;">Break</td>
+            <td style="padding:0.5rem;">—</td>
+          </tr>
+          <tr>
+            <td style="padding:0.5rem;">11:00 - 11:30</td>
+            <td style="padding:0.5rem;">Inputs and outputs of ODRL evaluators</td>
+            <td style="padding:0.5rem;">Dr. Carol Example</td>
+          </tr>
+          <tr>
+            <td style="padding:0.5rem;">11:30 - 13:00</td>
+            <td style="padding:0.5rem;">Practical applications</td>
+            <td style="padding:0.5rem;">Dr. David Example</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Organisers Section -->
+    <section id="organisers">
+      <h2>Organisers & Speakers</h2>
+      <p>
+        This tutorial will be presented and organised by a group of researchers that co-chair and/or actively contribute to the W3C ODRL Community Group:
+      </p>
+      <div class="profiles">
+        <div class="profiles-row">
+          <div class="profile-card">
+            <img src="./assets/img/beatriz.jpg" alt="Beatriz Esteves" />
+            <h3>Beatriz Esteves</h3>
+            <p>
+              Postdoctoral researcher in the KNoWS research group of IDLab, Ghent University,
+              specialising in semantic and decentralised technologies that promote trust and 
+              transparency on the publication and sharing of personal data on the Web,
+              while complying with data protection regulatory requirements.
+            </p>
+            <div class="profile-actions">
+              <a href="https://w3id.org/people/besteves" target="_blank" aria-label="Personal website">🌐</a>
+              <a href="mailto:beatriz.esteves@ugent.be" aria-label="Email">✉️</a>
+              <a href="https://scholar.google.com/citations?user=OQya3R8AAAAJ" target="_blank" aria-label="Google Scholar">🎓</a>
+              <a href="https://github.com/besteves4" target="_blank" aria-label="GitHub">🐙</a>
+            </div>
+          </div>
+          <div class="profile-card">
+            <img src="./assets/img/wout.png" alt="Wout Slabbinck" />
+            <h3>Wout Slabbinck</h3>
+            <p>
+              PhD researcher in the KNoWS research group of IDLab, Ghent University,
+              focused on the interoperability and enforceability of usage control policies in decentralised ecosystems.
+            </p>
+            <div class="profile-actions">
+              <a href="https://woutslabbinck.com" target="_blank" aria-label="Personal website">🌐</a>
+              <a href="mailto:wout.slabbinck@ugent.be" aria-label="Email">✉️</a>
+              <a href="https://scholar.google.com/citations?user=5Y2mo88AAAAJ" target="_blank" aria-label="Google Scholar">🎓</a>
+              <a href="https://github.com/woutslabbinck" target="_blank" aria-label="GitHub">🐙</a>
+            </div>
+          </div>
+          <div class="profile-card">
+            <img src="./assets/img/Andrea.jpg" alt="Andrea Cimmino" />
+            <h3>Andrea Cimmino</h3>
+            <p>
+              Permanent Professor at the Computer Systems department of the Universidad Politécnica de Madrid
+              and senior researcher at the Ontology Engineering Group.
+              His research topics focus on semantic interoperability, distributed discovery and policy-based privacy.
+            </p>
+            <div class="profile-actions">
+              <a href="http://mayor2.dia.fi.upm.es/oeg-upm/index.php/es/phd/389-acimmino/index.html" target="_blank" aria-label="Personal website">🌐</a>
+              <a href="mailto:andreajesus.cimmino@upm.es" aria-label="Email">✉️</a>
+              <a href="https://scholar.google.com/citations?user=_6U9WMcAAAAJ" target="_blank" aria-label="Google Scholar">🎓</a>
+              <a href="https://github.com/AndreaCimminoArriaga" target="_blank" aria-label="GitHub">🐙</a>
+            </div>
+          </div>
+        </div>
+        <div class="profiles-row center">
+          <div class="profile-card">
+            <img src="./assets/img/fornara-nicoletta.jpg" alt="Nicoletta Fornara" />
+            <h3>Nicoletta Fornara</h3>
+            <p>
+              Senior Researcher and Lecturer at Università della Svizzera italiana (USI),
+              at the Faculty of Communication, Culture and Society, where she conducts research
+              in Autonomous Agents and Normative Multiagent Systems by using Semantic Web Technologies.
+              She is studying the problem of defining a formal semantics for ODRL.
+            </p>
+            <div class="profile-actions">
+              <a href="https://search.usi.ch/en/people/542f4f5b9685647629421ff52b1bff53/fornara-nicoletta" target="_blank" aria-label="Personal website">🌐</a>
+              <a href="mailto:nicoletta.fornara@usi.ch" aria-label="Email">✉️</a>
+              <a href="https://scholar.google.com/citations?user=KdLTDBQAAAAJ" target="_blank" aria-label="Google Scholar">🎓</a>
+              <a href="https://github.com/fornaran" target="_blank" aria-label="GitHub">🐙</a>
+            </div>
+          </div>
+          <div class="profile-card">
+            <img src="./assets/img/victor24.png" alt="Víctor Rodríguez-Doncel" />
+            <h3>Víctor Rodríguez-Doncel</h3>
+            <p>
+              Associate Professor in the Artificial Intelligence department at Universidad Politécnica de Madrid (Spain).
+              He is conducting research within the Ontology Engineering Group in areas related to Semantic Web, 
+              Language Technologies and Law.
+            </p>
+            <div class="profile-actions">
+              <a href="https://cosasbuenas.es" target="_blank" aria-label="Personal website">🌐</a>
+              <a href="mailto:vrodriguez@fi.upm.es" aria-label="Email">✉️</a>
+              <a href="https://scholar.google.com/citations?user=czpMk10AAAAJ" target="_blank" aria-label="Google Scholar">🎓</a>
+              <a href="https://github.com/vroddon" target="_blank" aria-label="GitHub">🐙</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="references">
+      <h2>Further Reading and References</h2>
+      <ul>
+        <li>Iannella, Renato, and Serena Villata. ODRL Information Model 2.2 (W3C Recommendation 15 February 2018). <a href="https://www.w3.org/TR/odrl-model/" target="_blank">https://www.w3.org/TR/odrl-model/</a>.</li>
+        <li>Iannella, Renato, Michael Steidl, Stuart Myles, and Víctor Rodríguez-Doncel. ODRL Vocabulary & Expression 2.2 (W3C Recommendation 15 February 2018). <a href="https://www.w3.org/TR/odrl-vocab/" target="_blank">https://www.w3.org/TR/odrl-vocab/</a>.</li>
+        <li>Fornara, Nicoletta, Víctor Rodríguez-Doncel, Beatriz Esteves, Simon Steyskal, Benedict Whittam Smith, and Yassir Sellami. ODRL Formal Semantics (Draft Community Group Report 16 December 2025). <a href="https://w3c.github.io/odrl/formal-semantics/" target="_blank">https://w3c.github.io/odrl/formal-semantics/</a>.</li>
+        <li>Slabbinck, Wout, Julián Rojas Meléndez, Beatriz Esteves, Pieter Colpaert, and Ruben Verborgh. 'Interoperable Interpretation and Evaluation of ODRL Policies'. In The Semantic Web, edited by Edward Curry, Maribel Acosta, Maria Poveda-Villalón, et al. Springer Nature Switzerland, 2025. <a href="https://doi.org/10.1007/978-3-031-94578-6_11" target="_blank">https://doi.org/10.1007/978-3-031-94578-6_11</a>.</li>
+        <li>Cimmino, Andrea, Juan Cano-Benito, and Raúl García-Castro. 'Open Digital Rights Enforcement Framework (ODRE): From Descriptive to Enforceable Policies'. Computers & Security 150 (2025): 104282. <a href="https://doi.org/10.1016/j.cose.2024.104282" target="_blank">https://doi.org/10.1016/j.cose.2024.104282</a>.</li>
+        <li>Bonatti, Piero Andrea, Nicoletta Fornara, and Andreas Harth. 'Towards a Formal Semantics of the Open Digital Rights Language (ODRL 2.2)''. ODRL and Beyond: Practical Applications and Challenges for Policy-Based Access and Usage Control (OPAL 2025), Co-Located with the Extended Semantic Web Conference 2025 (ESWC 2025), 2025. <a href="https://ceur-ws.org/Vol-3977/OPAL2025-4.pdf" target="_blank">https://ceur-ws.org/Vol-3977/OPAL2025-4.pdf</a>.</li>
+        <li>Esteves, Beatriz, Wout Slabbinck, Yassir Sellami, Andrea Cimmino, Víctor Rodríguez-Doncel, and Ruben Verborgh. 'Capturing Requests and Context for ODRL-Based Access and Usage Control'. Joint Proceedings of the 16th Workshop on Ontology Design and Patterns and the 1st Workshop on Bridging Hybrid Intelligence and the Semantic Web (WOP-HAIBRIDGE 2025) Co-Located with the 24th International Semantic Web Conference (ISWC 2025), 2025. <a href="https://ceur-ws.org/Vol-4093/paper5.pdf" target="_blank">https://ceur-ws.org/Vol-4093/paper5.pdf</a>.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      This website does not collect any personal data nor does it track user activity.
+      Licensed under CC BY-SA 4.0 except where otherwise noted.
+    </p>
+    <section>
+      <h4>Acknowledgements</h4>
+      <p>
+        We gratefully acknowledge the contributions of the ODRL Community Group,
+        collaborating institutions, and funding bodies that supported the
+        development of this tutorial.
+      </p>
+    </section>
+  </footer>
+
+  <script>
+    const headerOffset = document.querySelector('header').offsetHeight + document.querySelector('nav').offsetHeight;
+
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    const sections = document.querySelectorAll('main section');
+    const navLinks = document.querySelectorAll('nav a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - headerOffset - 20;
+        if (scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
