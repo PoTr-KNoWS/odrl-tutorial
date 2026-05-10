@@ -1,0 +1,9 @@
+  {
+	 "@context": "http://www.w3.org/ns/odrl.jsonld",
+	 "@type": "Set",
+	 "uid": "https://w3c.github.io/odrl/bp/examples/1",
+	 "permission": [{
+ 		"target": "http://example.com/asset:9898.movie",
+ 		"action": "use"
+	 }]
+}

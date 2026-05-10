@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="urn:mpeg:mpeg21:2003:01-REL-SX-NS"
+xmlns:sx="urn:mpeg:mpeg21:2003:01-REL-SX-NS"
+xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS"
+xmlns:dsig="http://www.w3.org/2000/09/xmldsig#"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+elementFormDefault="qualified" attributeFormDefault="unqualified">
+   <xsd:import namespace="urn:mpeg:mpeg21:2003:01-REL-R-NS" schemaLocation="rel-r.xsd"/>
+   <xsd:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/xmldsig-core-schema.xsd"/>
+   <!-- Elements -->
+   <xsd:element name="anonymousStateService" type="sx:AnonymousStateService" substitutionGroup="r:serviceDescription"/>
+   <xsd:element name="callForCondition" type="sx:CallForCondition" substitutionGroup="r:condition"/>
+   <xsd:element name="commonName" type="sx:CommonName" substitutionGroup="sx:name"/>
+   <xsd:element name="dnsName" type="sx:DnsName" substitutionGroup="sx:name"/>
+   <xsd:element name="emailName" type="sx:EmailName" substitutionGroup="sx:name"/>
+   <xsd:element name="exerciseLimit" type="sx:ExerciseLimit" substitutionGroup="r:condition"/>
+   <xsd:element name="feeFlat" type="sx:FeeFlat" substitutionGroup="r:condition"/>
+   <xsd:element name="feeMetered" type="sx:FeeMetered" substitutionGroup="r:condition"/>
+   <xsd:element name="feePerInterval" type="sx:FeePerInterval" substitutionGroup="r:condition"/>
+   <xsd:element name="feePerUse" type="sx:FeePerUse" substitutionGroup="r:condition"/>
+   <xsd:element name="feePerUsePrePay" type="sx:FeePerUsePrePay" substitutionGroup="r:condition"/>
+   <xsd:element name="licenseIdPattern" type="sx:LicenseIdPattern" substitutionGroup="r:anXmlPatternAbstract"/>
+   <xsd:element name="name" type="sx:Name" substitutionGroup="r:propertyAbstract"/>
+   <xsd:element name="propertyUri" type="sx:PropertyUri" substitutionGroup="r:propertyAbstract"/>
+   <xsd:element name="rate" type="sx:Rate" substitutionGroup="r:licensePart"/>
+   <xsd:element name="rightUri" type="sx:RightUri" substitutionGroup="r:right"/>
+   <xsd:element name="seekApproval" type="sx:SeekApproval" substitutionGroup="r:condition"/>
+   <xsd:element name="stateDistinguisher" block="#all" substitutionGroup="r:licensePart" final="#all">
+      <xsd:complexType mixed="true">
+         <xsd:complexContent mixed="true">
+            <xsd:extension base="r:LicensePart"/>
+         </xsd:complexContent>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:element name="stateReferenceValuePattern" type="sx:StateReferenceValuePattern" substitutionGroup="r:anXmlPatternAbstract"/>
+   <xsd:element name="territory" type="sx:Territory" substitutionGroup="r:condition"/>
+   <xsd:element name="trackQuery" type="sx:TrackQuery" substitutionGroup="r:condition"/>
+   <xsd:element name="trackReport" type="sx:TrackReport" substitutionGroup="r:condition"/>
+   <xsd:element name="transferControl" type="sx:TransferControl" substitutionGroup="r:condition"/>
+   <xsd:element name="uddi" type="sx:Uddi" substitutionGroup="r:serviceDescription"/>
+   <xsd:element name="validityIntervalDurationPattern" type="sx:ValidityIntervalDurationPattern" substitutionGroup="r:conditionPatternAbstract"/>
+   <xsd:element name="validityIntervalFloating" type="sx:ValidityIntervalFloating" substitutionGroup="r:condition"/>
+   <xsd:element name="validityIntervalStartsNow" type="sx:ValidityIntervalStartsNow" substitutionGroup="r:condition"/>
+   <xsd:element name="validityTimeMetered" type="sx:ValidityTimeMetered" substitutionGroup="r:condition"/>
+   <xsd:element name="validityTimePeriodic" type="sx:ValidityTimePeriodic" substitutionGroup="r:condition"/>
+   <xsd:element name="wsdlAddress" type="sx:WsdlAddress" substitutionGroup="r:serviceDescription"/>
+   <xsd:element name="wsdlComplete" type="sx:WsdlComplete" substitutionGroup="r:serviceDescription"/>
+   <xsd:element name="x509SubjectName" type="sx:X509SubjectName" substitutionGroup="sx:name"/>
+   <xsd:element name="x509SubjectNamePattern" type="sx:X509SubjectNamePattern" substitutionGroup="r:resourcePatternAbstract"/>
+   <!-- Complex Types -->
+   <xsd:complexType name="AccountPayable">
+      <xsd:choice>
+         <xsd:element name="paymentService">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element ref="r:serviceReference"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="aba">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="institution">
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:integer">
+                           <xsd:totalDigits value="9"/>
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="account" type="xsd:integer"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:any namespace="##other" processContents="lax"/>
+      </xsd:choice>
+   </xsd:complexType>
+   <xsd:complexType name="AnonymousStateService">
+      <xsd:complexContent>
+         <xsd:extension base="r:ServiceDescription"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="CallForCondition">
+      <xsd:complexContent>
+         <xsd:extension base="r:Condition">
+            <xsd:sequence minOccurs="0">
+               <xsd:element ref="r:serviceReference" maxOccurs="unbounded"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="CommonName" mixed="true">
+      <xsd:complexContent mixed="true">
+         <xsd:extension base="sx:Name"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="DnsName" mixed="true">
+      <xsd:complexContent mixed="true">
+         <xsd:extension base="sx:Name"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="EmailName" mixed="true">
+      <xsd:complexContent mixed="true">
+         <xsd:extension base="sx:Name"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="ExerciseLimit">
+      <xsd:complexContent>
+         <xsd:extension base="sx:StatefulCondition">
+            <xsd:sequence>
+               <xsd:element name="count" type="xsd:integer" minOccurs="0"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="FeeFlat">
+      <xsd:complexContent>
+         <xsd:extension base="sx:StatefulCondition">
+            <xsd:sequence minOccurs="0">
+               <xsd:element ref="sx:rate"/>
+               <xsd:element name="to" type="sx:AccountPayable" minOccurs="0"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="FeeMetered">
+      <xsd:complexContent>
+         <xsd:extension base="r:Condition">
+            <xsd:sequence minOccurs="0">
+               <xsd:element ref="sx:rate"/>
+               <xsd:element name="per" type="xsd:duration"/>
+               <xsd:element name="by" type="xsd:duration"/>
+               <xsd:element name="phase" type="xsd:duration"/>
+               <xsd:element name="to" type="sx:AccountPayable" minOccurs="0"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="FeePerInterval">
+      <xsd:complexContent>
+         <xsd:extension base="sx:StatefulCondition">
+            <xsd:sequence minOccurs="0">
+               <xsd:element ref="sx:rate"/>
+               <xsd:element name="per" type="xsd:duration"/>
+               <xsd:element name="to" type="sx:AccountPayable" minOccurs="0"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="FeePerUse">
+      <xsd:complexContent>
+         <xsd:extension base="r:Condition">
+            <xsd:sequence minOccurs="0">
+               <xsd:element ref="sx:rate"/>
+               <xsd:element name="to" type="sx:AccountPayable" minOccurs="0"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="FeePerUsePrePay">
+      <xsd:complexContent>
+         <xsd:extension base="sx:StatefulCondition">
+            <xsd:sequence minOccurs="0">
+               <xsd:element ref="sx:rate"/>
+               <xsd:element name="initialNumberOfUses" type="xsd:integer" minOccurs="0"/>
+               <xsd:element name="to" type="sx:AccountPayable" minOccurs="0"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="LicenseIdPattern">
+      <xsd:complexContent>
+         <xsd:extension base="r:AnXmlPatternAbstract"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="Name">
+      <xsd:complexContent>
+         <xsd:extension base="r:PropertyAbstract"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="PropertyUri">
+      <xsd:complexContent>
+         <xsd:extension base="r:PropertyAbstract">
+            <xsd:attribute name="definition" type="xsd:anyURI"/>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="Rate">
+      <xsd:complexContent>
+         <xsd:extension base="r:LicensePart">
+            <xsd:sequence minOccurs="0">
+               <xsd:element name="amount" type="xsd:float"/>
+               <xsd:element name="currency" type="xsd:QName" minOccurs="0"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="RightUri">
+      <xsd:complexContent>
+         <xsd:extension base="r:Right">
+            <xsd:attribute name="definition" type="xsd:anyURI"/>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="SeekApproval">
+      <xsd:complexContent>
+         <xsd:extension base="sx:StatefulCondition"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="StatefulCondition">
+      <xsd:complexContent>
+         <xsd:extension base="r:Condition">
+            <xsd:sequence>
+               <xsd:element ref="r:serviceReference" minOccurs="0"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="StateReferenceValuePattern">
+      <xsd:complexContent>
+         <xsd:extension base="r:AnXmlPatternAbstract">
+            <xsd:sequence minOccurs="0">
+               <xsd:any namespace="##any" processContents="lax" maxOccurs="unbounded"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="Territory">
+      <xsd:complexContent>
+         <xsd:extension base="r:Condition">
+            <xsd:choice minOccurs="0" maxOccurs="unbounded">
+               <xsd:element name="location">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="country" type="xsd:QName" minOccurs="0"/>
+                        <xsd:element name="region" type="xsd:QName" minOccurs="0"/>
+                        <xsd:element name="state" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="city" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="postalCode" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="street" type="xsd:string" minOccurs="0"/>
+                     </xsd:sequence>
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="domain">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="uri" type="xsd:anyURI"/>
+                     </xsd:sequence>
+                  </xsd:complexType>
+               </xsd:element>
+            </xsd:choice>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="TrackQuery">
+      <xsd:complexContent>
+         <xsd:extension base="sx:StatefulCondition">
+            <xsd:sequence>
+               <xsd:element name="notLessThan" type="xsd:integer" minOccurs="0"/>
+               <xsd:element name="notMoreThan" type="xsd:integer" minOccurs="0"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="TrackReport">
+      <xsd:complexContent>
+         <xsd:extension base="sx:StatefulCondition">
+            <xsd:sequence>
+               <xsd:element name="communicationFailurePolicy" default="required" minOccurs="0">
+                  <xsd:simpleType>
+                     <xsd:restriction base="xsd:NMTOKEN">
+                        <xsd:pattern value="lax"/>
+                        <xsd:pattern value="required"/>
+                     </xsd:restriction>
+                  </xsd:simpleType>
+               </xsd:element>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="TransferControl">
+      <xsd:complexContent>
+         <xsd:extension base="sx:StatefulCondition"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="Uddi">
+      <xsd:complexContent>
+         <xsd:extension base="r:ServiceDescription">
+            <xsd:sequence minOccurs="0">
+               <xsd:element name="serviceKey" type="sx:UddiKey"/>
+               <xsd:element name="registry" type="xsd:anyURI" minOccurs="0"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="UddiKey">
+      <xsd:choice>
+         <xsd:element name="uuid" type="sx:Uuid"/>
+         <xsd:element name="uri" type="xsd:anyURI"/>
+      </xsd:choice>
+   </xsd:complexType>
+   <xsd:complexType name="ValidityIntervalDurationPattern">
+      <xsd:complexContent>
+         <xsd:extension base="r:ConditionPatternAbstract">
+            <xsd:sequence minOccurs="0">
+               <xsd:element name="duration" type="xsd:duration"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="ValidityIntervalFloating">
+      <xsd:complexContent>
+         <xsd:extension base="sx:StatefulCondition">
+            <xsd:sequence>
+               <xsd:element name="duration" type="xsd:duration" minOccurs="0"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="ValidityIntervalStartsNow">
+      <xsd:complexContent>
+         <xsd:extension base="r:Condition">
+            <xsd:sequence minOccurs="0">
+               <xsd:element ref="r:validityInterval"/>
+               <xsd:element name="backwardTolerance" type="xsd:duration" minOccurs="0"/>
+               <xsd:element name="forwardTolerance" type="xsd:duration" minOccurs="0"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="ValidityTimeMetered">
+      <xsd:complexContent>
+         <xsd:extension base="sx:StatefulCondition">
+            <xsd:sequence>
+               <xsd:element name="duration" type="xsd:duration" minOccurs="0"/>
+               <xsd:element name="quantum" type="xsd:duration" minOccurs="0"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="ValidityTimePeriodic">
+      <xsd:complexContent>
+         <xsd:extension base="r:Condition">
+            <xsd:sequence minOccurs="0">
+               <xsd:element name="start" type="xsd:dateTime"/>
+               <xsd:element name="period" type="xsd:duration"/>
+               <xsd:element name="phase" type="xsd:duration" minOccurs="0"/>
+               <xsd:element name="duration" type="xsd:duration"/>
+               <xsd:element name="periodCount" type="xsd:nonNegativeInteger" minOccurs="0"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="WsdlAddress">
+      <xsd:complexContent>
+         <xsd:extension base="r:ServiceDescription">
+            <xsd:sequence minOccurs="0">
+               <xsd:element name="kind">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:element name="wsdl" type="r:DigitalResource"/>
+                        <xsd:element name="binding" type="xsd:QName"/>
+                     </xsd:sequence>
+                  </xsd:complexType>
+               </xsd:element>
+               <xsd:element name="address">
+                  <xsd:complexType>
+                     <xsd:sequence>
+                        <xsd:any namespace="##any" processContents="lax"/>
+                     </xsd:sequence>
+                  </xsd:complexType>
+               </xsd:element>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="WsdlComplete">
+      <xsd:complexContent>
+         <xsd:extension base="r:ServiceDescription">
+            <xsd:sequence minOccurs="0">
+               <xsd:element name="wsdl" type="r:DigitalResource"/>
+               <xsd:element name="service" type="xsd:QName"/>
+               <xsd:element name="portType" type="xsd:QName" minOccurs="0"/>
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="X509SubjectName" mixed="true">
+      <xsd:complexContent mixed="true">
+         <xsd:extension base="sx:Name"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:complexType name="X509SubjectNamePattern" mixed="true">
+      <xsd:complexContent mixed="true">
+         <xsd:extension base="r:ResourcePatternAbstract"/>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <!-- Simple Types -->
+   <xsd:simpleType name="ProfileCompliance">
+      <xsd:list itemType="xsd:QName"/>
+   </xsd:simpleType>
+   <xsd:simpleType name="Uuid">
+      <xsd:restriction base="xsd:string">
+         <xsd:length value="36"/>
+      </xsd:restriction>
+   </xsd:simpleType>
+   <!-- Attributes -->
+   <xsd:attribute name="profileCompliance" type="sx:ProfileCompliance"/>
+</xsd:schema>

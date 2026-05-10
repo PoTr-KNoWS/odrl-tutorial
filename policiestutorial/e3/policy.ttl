@@ -1,0 +1,8 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+
+<http://example.org/policy/1> a odrl:Policy, odrl:Set ;
+  odrl:permission [
+    odrl:target <https://w3c.github.io/odrl/bp/examples/1> ;
+    odrl:assignee <http://example.com/party/Alice> ;
+    odrl:action odrl:use
+  ] .

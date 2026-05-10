@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Simple MPEG-21 REL (ISO/IEC 21000-5) license.
+  Grants Alice the right to "play" a digital resource
+  before 31 December 2026.
+-->
+<r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS"
+           xmlns:sx="urn:mpeg:mpeg21:2003:01-REL-SX-NS"
+           xmlns:mx="urn:mpeg:mpeg21:2003:01-REL-MX-NS"
+           xmlns:dsig="http://www.w3.org/2000/09/xmldsig#"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <r:grant>
+
+    <!-- Principal: who the right is granted to -->
+    <r:keyHolder>
+      <r:info>
+        <dsig:KeyName>Alice</dsig:KeyName>
+      </r:info>
+    </r:keyHolder>
+
+    <!-- Right: what the principal may do -->
+    <mx:play/>
+
+    <!-- Resource: what the right applies to -->
+    <r:digitalResource>
+      <r:nonSecureIndirect URI="urn:example:content:movie-001"/>
+    </r:digitalResource>
+
+    <!-- Condition: when / under what constraints -->
+    <r:validityInterval>
+      <r:notAfter>2026-12-31T23:59:59</r:notAfter>
+    </r:validityInterval>
+
+  </r:grant>
+
+  <r:issuer>
+    <r:keyHolder>
+      <r:info>
+        <dsig:KeyName>ExampleIssuer</dsig:KeyName>
+      </r:info>
+    </r:keyHolder>
+  </r:issuer>
+
+</r:license>
